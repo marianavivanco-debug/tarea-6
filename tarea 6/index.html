@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Cuadrado Interactivo</title>
+  <style>
+    body {
+      background-color: #f6f0fa;
+      margin: 0;
+      height: 100vh;
+    }
+
+    #cuadrado {
+      width: 200px;
+      height: 200px;
+      background-color: #c8a2c8;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  </style>
+</head>
+<body>
+  <div id="cuadrado"></div>
+
+  <script>
+    let cuadrado = document.getElementById("cuadrado");
+    let mouseEncima = false;
+
+    cuadrado.addEventListener("mouseenter", function() {
+      mouseEncima = true;
+    });
+
+    cuadrado.addEventListener("mouseleave", function() {
+      mouseEncima = false;
+    });
+    
+    cuadrado.addEventListener("click", function() {
+      if (mouseEncima) {
+        let color = "#" + Math.floor(Math.random() * 16777215).toString(16);
+        cuadrado.style.backgroundColor = color;
+      }
+    });
+  </script>
+</body>
+</html>
